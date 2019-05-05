@@ -1,0 +1,15 @@
+  <div class="devise">
+    <%= form_with model: Tweet , local: true do |f|%>
+      <h3>
+        編集する
+      </h3>
+  <%= f.label :image %><br>
+  <%= f.text_field :image, value: @tweet.image %><br>
+  <%= f.label :grade %><br>
+  <%= f.text_field :grade, value: @tweet.grade%><br>
+  <%= f.label :text %><br>
+  <%= f.text_area :text, value: @tweet.text %>
+  <br>
+  <%= f.submit :更新する %>
+    <% end %>
+  </div>

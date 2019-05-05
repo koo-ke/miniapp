@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Miniappカリキュラム</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track'=> true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+      <div class="header">
+        <div class="title"><a href="/">Climb on!</a></div>
+          <div class="menulist">
+            <ul>
+            <% if user_signed_in? %>
+              <li><a href="/users/<%= current_user.id %>">マイページ</a></li>
+              <li><%= link_to "LOG OUT", destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to "投稿する", tweets_new_path %></li>
+            <% else %>
+              <li><%= link_to "LOG IN", new_user_session_path %></li>
+              <li><%= link_to "新規登録", new_user_registration_path %></li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    <%= yield %>
+  </body>
+</html>
